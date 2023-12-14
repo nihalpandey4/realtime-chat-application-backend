@@ -1,5 +1,5 @@
 const { statusCodes, httpErrorMessages } = require("../../../../config");
-
+const signupUserService = require("../../../../services/auth/SignupUser");
 module.exports = async (req, res) => {
   try {
     const username = req.body.username;
@@ -11,9 +11,12 @@ module.exports = async (req, res) => {
       });
     }
 
+    const result = await signupUserService(username, password);
+
     return res.status(statusCodes.success).json({
       username,
       password,
+      result,
     });
   } catch (err) {
     console.error(err);

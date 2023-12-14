@@ -9,6 +9,7 @@ const server = app.listen(config.PORT, () => {
   console.log(`server running at ${config.PORT}`);
 });
 app.use(morgan("combined"));
+app.use(express.json());
 app.use("/apis", apis);
 
 process.on("SIGINT", () => {

@@ -13,10 +13,8 @@ module.exports = async (req, res) => {
 
     const result = await signupUserService(username, password);
 
-    return res.status(statusCodes.success).json({
-      username,
-      password,
-      result,
+    return res.status(statusCodes.resourceCreated).json({
+      message: "user created",
     });
   } catch (err) {
     console.error(err);

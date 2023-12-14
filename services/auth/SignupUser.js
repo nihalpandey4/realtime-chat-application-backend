@@ -1,4 +1,4 @@
-const userModelMongo = require("../../database/mongo/models/userModel");
+const insertUserService = require("../../database/services/insertUser");
 
 module.exports = async (userName, password) => {
   try {
@@ -6,8 +6,7 @@ module.exports = async (userName, password) => {
       userName,
       password,
     };
-    userDetails = await userModelMongo.insertMany([userDetails]);
-    console.log(userDetails);
+    userDetails = await insertUserService(userName, password);
     return userDetails;
   } catch (err) {
     console.error(err);

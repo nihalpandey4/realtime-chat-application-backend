@@ -1,4 +1,5 @@
 {
   "success": 200,
-  "badRequest": 400
+  "badRequest": 400,
+  "resourceCreated": 201
 }

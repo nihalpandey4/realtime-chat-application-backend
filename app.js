@@ -18,11 +18,3 @@ process.on("SIGINT", () => {
     process.exit(0);
   });
 });
-
-process.on("SIGABRT", () => {
-  console.log("termination signal received");
-  server.close(() => {
-    console.log("Server shutting down");
-    process.exit(0);
-  });
-});

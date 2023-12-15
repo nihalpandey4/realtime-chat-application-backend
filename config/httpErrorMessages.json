@@ -1,3 +1,5 @@
 {
-  "MandatoryParams": "Mandatory parameters missing"
+  "MandatoryParams": "Mandatory parameters missing",
+  "UserNotFound": "User not found",
+  "InvalidToken": "invalid token"
 }

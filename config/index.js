@@ -3,4 +3,5 @@ module.exports = {
   statusCodes: require("./statusCodes.json"),
   httpErrorMessages: require("./httpErrorMessages.json"),
   mongooseConnectionUrl: require("./dbCredential.json").mongoConnectionUrl,
+  privateKeyJWT: require("fs").readFileSync("config/realTimeKey", "utf-8"),
 };

@@ -1,5 +1,6 @@
 {
   "success": 200,
   "badRequest": 400,
-  "resourceCreated": 201
+  "resourceCreated": 201,
+  "unAuthorized": 401
 }

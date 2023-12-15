@@ -1,5 +1,6 @@
 const passwordHash = require("password-hash");
 const fetchUser = require("../../database/services/fetchUser");
+const createToken = require("./createToken");
 module.exports = async (userName, password) => {
   try {
     const user = await fetchUser(userName);
@@ -7,7 +8,8 @@ module.exports = async (userName, password) => {
     let hashedPassword = user.password;
     let isValid = await passwordHash.verify(password, hashedPassword);
     if (isValid) {
-      return user;
+      let token = await createToken(user);
+      return { token, userName };
     }
   } catch (err) {
     console.error(err);

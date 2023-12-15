@@ -9,8 +9,10 @@ module.exports = async (req, res, next) => {
     const decoded = jsonWebToken.verify(authToken, privateKeyJWT);
     if (decoded) {
       const user = await fetchUser(decoded.userName);
-      if (user) next();
-      else throw new Error(httpErrorMessages.UserNotFound);
+      if (user) {
+        req.user = user.toJSON();
+        next();
+      } else throw new Error(httpErrorMessages.UserNotFound);
     } else {
       throw new Error(httpErrorMessages.InvalidToken);
     }

@@ -1,10 +1,8 @@
 const router = require("express").Router();
 const auth = require("./auth");
-const authenticationMiddleware = require("../../middlewares/authenticateMiddleware");
+const authenticateMiddleware = require("../../middlewares/authenticateMiddleware");
 
 router.use("/auth", auth);
-router.get("/authorizedRoute", authenticationMiddleware, (req, res) => {
-  res.send("working");
-});
+router.use("/chatRoom", authenticateMiddleware, require("./chatRooms"));
 
 module.exports = router;
